@@ -8,6 +8,7 @@ const rsync = require('gulp-rsync');
 const sequence = require('run-sequence');
 const zip = require('gulp-zip');
 const pages = require('gulp-gh-pages');
+const browserSync = require('browser-sync').create();
 
 gulp.task('prepare', () => {
 
@@ -99,5 +100,14 @@ gulp.task('publish', (callback) => {
 gulp.task('clean', () => {
 	return del('prepared/**');
 });
+
+gulp.task('dev-server', () => {
+	browserSync.init({
+		server: {
+			baseDir: "./"
+		}
+	});
+	gulp.watch("index.html").on('change', browserSync.reload);
+})
 
 gulp.task('default', ['prepare']);
