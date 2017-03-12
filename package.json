@@ -1,5 +1,5 @@
 {
-  "name": "mobx presentation",
+  "name": "mobx-presentation",
   "version": "1.0.0",
   "dependencies": {
     "shower-core": "^2.1.0",
